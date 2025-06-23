@@ -18,8 +18,8 @@ export default function ContactPage() {
                         Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Touch</span>
                     </h1>
                     <p className="text-xl text-gray-600 leading-relaxed">
-                        Have questions? Feedback? Ideas? We'd love to hear from you!
-                        Drop us a message and we'll get back to you soon.
+                        Have questions? Feedback? Ideas? We&apos;d love to hear from you!
+                        Drop us a message and we&apos;ll get back to you soon.
                     </p>
                 </div>
 

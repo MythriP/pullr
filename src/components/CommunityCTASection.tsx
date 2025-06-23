@@ -29,7 +29,7 @@ export default function CommunityCTASection() {
                     </div>
 
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        Be a part of a cool community that doesn't just shine —
+                        Be a part of a cool community that doesn&apos;t just shine —
                         <span className="inline-flex items-center gap-2 text-yellow-300">
                             we reflect <Sparkles className="w-8 h-8 sm:w-10 sm:h-10" />
                         </span>

@@ -61,7 +61,7 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
                             Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Pullr?</span>
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            We're revolutionizing how talented people connect with opportunities.
+                            We&apos;re revolutionizing how talented people connect with opportunities.
                             No more job board scrolling, no more application black holes.
                         </p>
                     </motion.div>
@@ -134,7 +134,7 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Tired of sifting through hundreds of generic resumes?
-                        We're changing how you discover and connect with genuine talent.
+                        We&apos;re changing how you discover and connect with genuine talent.
                     </p>
                 </motion.div>
 

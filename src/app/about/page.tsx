@@ -18,7 +18,7 @@ export default function AboutPage() {
                         About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Pullr</span>
                     </h1>
                     <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                        We're building the future of how talent and opportunities connect.
+                        We&apos;re building the future of how talent and opportunities connect.
                         No more broken job boards, no more endless applications.
                     </p>
                 </div>
@@ -52,7 +52,7 @@ export default function AboutPage() {
                 <div className="text-center bg-white rounded-3xl p-8 shadow-lg">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">Coming Soon</h2>
                     <p className="text-gray-600 mb-6">
-                        We're currently in development, building something amazing.
+                        We&apos;re currently in development, building something amazing.
                         Want to be the first to know when we launch?
                     </p>
                     <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all">
