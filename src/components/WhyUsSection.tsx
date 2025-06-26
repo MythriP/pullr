@@ -105,7 +105,7 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
         {
             icon: Target,
             title: "Portfolios > Resumes",
-            description: "Candidates can't fake skills when they have to show actual projects and results. Quality over quantity."
+            description: "Candidates can&apos;t fake skills when they have to show actual projects and results. Quality over quantity."
         },
         {
             icon: Clock,

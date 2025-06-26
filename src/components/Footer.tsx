@@ -100,7 +100,7 @@ export default function Footer({ mode }: FooterProps) {
                             </div>
                             <p className="text-sm text-gray-300 leading-relaxed">
                                 {mode === 'jobseeker'
-                                    ? "See you soon 🚀 – We're still baking this, but it already smells 🔥"
+                                    ? "See you soon 🚀 – We&apos;re still baking this, but it already smells 🔥"
                                     : "Our unbiased matching algorithm is still being trained. Stay tuned 🤖✨"
                                 }
                             </p>

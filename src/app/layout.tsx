@@ -9,7 +9,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Pullr - Where Jobs Find You",
-  description: "The next-gen job platform where people don't apply to jobs—jobs find them. Build your portfolio, showcase your skills, and let opportunities come to you.",
+  description: "The next-gen job platform where people don&apos;t apply to jobs—jobs find them. Build your portfolio, showcase your skills, and let opportunities come to you.",
   keywords: ["jobs", "careers", "portfolio", "hiring", "recruitment", "talent"],
   authors: [{ name: "Pullr Team" }],
   creator: "Pullr",
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://pullr.dev",
     title: "Pullr - Where Jobs Find You",
-    description: "The next-gen job platform where people don't apply to jobs—jobs find them.",
+    description: "The next-gen job platform where people don&apos;t apply to jobs—jobs find them.",
     siteName: "Pullr",
   },
   twitter: {
     card: "summary_large_image",
     title: "Pullr - Where Jobs Find You",
-    description: "The next-gen job platform where people don't apply to jobs—jobs find them.",
+    description: "The next-gen job platform where people don&apos;t apply to jobs—jobs find them.",
     creator: "@pullr",
   },
   robots: {

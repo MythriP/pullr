@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import HeroSection from '@/components/HeroSection';
-import WhyUsSection from '@/components/WhyUsSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import FAQSection from '@/components/FAQSection';
 import CommunityCTASection from '@/components/CommunityCTASection';

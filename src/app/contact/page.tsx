@@ -55,7 +55,7 @@ export default function ContactPage() {
 
             if (response.ok) {
                 setStatus('success');
-                setStatusMessage('Message sent successfully! We\'ll get back to you soon.');
+                setStatusMessage('Message sent successfully! We&apos;ll get back to you soon.');
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 setStatus('error');
@@ -162,7 +162,7 @@ export default function ContactPage() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none text-gray-900"
-                                    placeholder="Tell us what's on your mind..."
+                                    placeholder="Tell us what&apos;s on your mind..."
                                     required
                                 />
                             </div>
@@ -189,10 +189,10 @@ export default function ContactPage() {
                         {/* Status Message */}
                         {status !== 'idle' && (
                             <div className={`p-4 rounded-xl flex items-center gap-3 ${status === 'success'
-                                    ? 'bg-green-50 text-green-800 border border-green-200'
-                                    : status === 'error'
-                                        ? 'bg-red-50 text-red-800 border border-red-200'
-                                        : 'bg-blue-50 text-blue-800 border border-blue-200'
+                                ? 'bg-green-50 text-green-800 border border-green-200'
+                                : status === 'error'
+                                    ? 'bg-red-50 text-red-800 border border-red-200'
+                                    : 'bg-blue-50 text-blue-800 border border-blue-200'
                                 }`}>
                                 {status === 'success' ? (
                                     <CheckCircle size={20} className="text-green-600" />

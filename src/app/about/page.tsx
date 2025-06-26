@@ -18,7 +18,7 @@ export default function AboutPage() {
                         About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Pullr</span>
                     </h1>
                     <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                        We're not just building a platform – we're revolutionizing how talent and opportunities connect.
+                        We&apos;re not just building a platform – we&apos;re revolutionizing how talent and opportunities connect.
                         This is our story.
                     </p>
                 </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
                             <p className="mb-6">
                                 We realized that both job seekers and recruiters were suffering from the same problem:
                                 <strong className="text-gray-900"> the inability to showcase and discover real talent</strong>.
-                                Resumes can't capture creativity, passion, or problem-solving abilities. They're just formatted lists
+                                Resumes can&apos;t capture creativity, passion, or problem-solving abilities. They&apos;re just formatted lists
                                 that everyone tries to game.
                             </p>
 
@@ -87,7 +87,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <p className="text-gray-600 leading-relaxed">
-                                We weren't trying to revolutionize the world – we just wanted a better way to show who we really are
+                                We weren&apos;t trying to revolutionize the world – we just wanted a better way to show who we really are
                                 and what we can do. Something authentic, something real.
                             </p>
                         </div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <p className="text-gray-600 leading-relaxed">
-                                We're not Silicon Valley insiders or hiring experts. We're just people who believe that everyone
+                                We&apos;re not Silicon Valley insiders or hiring experts. We&apos;re just people who believe that everyone
                                 deserves to be seen for their true potential, not just keywords on a page.
                             </p>
                         </div>
@@ -203,7 +203,7 @@ export default function AboutPage() {
                             <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center">
                                 <MessageCircle className="w-6 h-6 text-white" />
                             </div>
-                            <h2 className="text-3xl font-bold text-gray-900">Let's Connect</h2>
+                            <h2 className="text-3xl font-bold text-gray-900">Let&apos;s Connect</h2>
                         </div>
 
                         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
