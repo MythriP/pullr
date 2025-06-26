@@ -14,8 +14,8 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
             <div className="relative flex items-center">
                 <motion.div
                     className={`absolute inset-y-0 w-1/2 rounded-full shadow-lg ${mode === 'jobseeker'
-                            ? 'bg-gradient-to-r from-green-600 to-green-400'
-                            : 'bg-gradient-to-r from-amber-600 to-amber-400'
+                        ? 'bg-gradient-to-r from-yellow-600 to-yellow-400'
+                        : 'bg-gradient-to-r from-blue-600 to-blue-400'
                         }`}
                     animate={{
                         x: mode === 'jobseeker' ? 0 : '100%',
@@ -25,7 +25,7 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
 
                 <button
                     onClick={() => onModeChange('jobseeker')}
-                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors ${mode === 'jobseeker' ? 'text-white' : 'text-gray-300 hover:text-white'
+                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors ${mode === 'jobseeker' ? 'text-white' : 'text-black hover:text-white'
                         }`}
                 >
                     <User size={16} />
@@ -34,7 +34,7 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
 
                 <button
                     onClick={() => onModeChange('recruiter')}
-                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors ${mode === 'recruiter' ? 'text-white' : 'text-gray-300 hover:text-white'
+                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors ${mode === 'recruiter' ? 'text-white' : 'text-black hover:text-white'
                         }`}
                 >
                     <Building size={16} />

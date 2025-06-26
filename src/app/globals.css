@@ -2,13 +2,22 @@
 
 /* Custom CSS Variables */
 :root {
-  /* Job Seeker Theme - Pure Black + Olive */
-  --jobseeker-bg: #000000;
-  --jobseeker-primary: #8fbc8f;
-  --jobseeker-accent: #6b8e6b;
+  /* Job Seeker Theme - Gen Z Vibrant Yellow + Electric Green */
+  --jobseeker-bg: #0a0a0a;
+  --jobseeker-primary: #ffeb3b;
+  /* Vibrant Yellow */
+  --jobseeker-secondary: #00ff88;
+  /* Electric Green */
+  --jobseeker-accent: #ff6b6b;
+  /* Coral Pink for accents */
+  --jobseeker-purple: #8b5cf6;
+  /* Electric Purple */
   --jobseeker-text: #ffffff;
   --jobseeker-text-muted: #a8b8a8;
-  --jobseeker-line: #8fbc8f;
+  --jobseeker-line: #ffeb3b;
+  --jobseeker-gradient: linear-gradient(135deg, #ffeb3b 0%, #00ff88 50%, #8b5cf6 100%);
+  --jobseeker-card-bg: rgba(255, 235, 59, 0.05);
+  --jobseeker-card-border: rgba(255, 235, 59, 0.2);
 
   /* Recruiter Theme - Pure Black + Creme */
   --recruiter-bg: #000000;
@@ -242,16 +251,32 @@ body {
   color: var(--jobseeker-primary);
 }
 
+.theme-jobseeker .text-secondary {
+  color: var(--jobseeker-secondary);
+}
+
 .theme-jobseeker .text-accent {
   color: var(--jobseeker-accent);
+}
+
+.theme-jobseeker .text-purple {
+  color: var(--jobseeker-purple);
 }
 
 .theme-jobseeker .bg-primary {
   background-color: var(--jobseeker-primary);
 }
 
+.theme-jobseeker .bg-secondary {
+  background-color: var(--jobseeker-secondary);
+}
+
 .theme-jobseeker .bg-accent {
   background-color: var(--jobseeker-accent);
+}
+
+.theme-jobseeker .bg-gradient {
+  background: var(--jobseeker-gradient);
 }
 
 .theme-jobseeker .border-primary {
@@ -260,6 +285,14 @@ body {
 
 .theme-jobseeker .text-muted {
   color: var(--jobseeker-text-muted);
+}
+
+/* Clean Cards for Job Seekers */
+.theme-jobseeker .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--jobseeker-card-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 /* Recruiter Theme */
@@ -565,4 +598,143 @@ textarea:focus,
 select:focus {
   outline: none;
   box-shadow: 0 0 0 3px var(--line-color);
+}
+
+/* Clean text styling */
+
+/* Glitch Effect */
+.theme-jobseeker .glitch {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+
+  0%,
+  90%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-1px, 1px);
+  }
+
+  40% {
+    transform: translate(-1px, -1px);
+  }
+
+  60% {
+    transform: translate(1px, 1px);
+  }
+
+  80% {
+    transform: translate(1px, -1px);
+  }
+}
+
+/* Bouncing Elements */
+.theme-jobseeker .bounce-in {
+  animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Morphing Shapes */
+.theme-jobseeker .morph-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphShape 8s ease-in-out infinite;
+}
+
+@keyframes morphShape {
+
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  50% {
+    border-radius: 20% 80% 50% 60% / 30% 20% 80% 70%;
+  }
+
+  75% {
+    border-radius: 80% 20% 60% 40% / 70% 50% 40% 30%;
+  }
+}
+
+/* Clean gradient text for headings only */
+.theme-jobseeker .gradient-text {
+  background: linear-gradient(45deg, var(--jobseeker-primary), var(--jobseeker-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating Animation */
+.theme-jobseeker .float-animation {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+/* Typewriter Effect */
+.theme-jobseeker .typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--jobseeker-primary);
+  white-space: nowrap;
+  animation: typewriter 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: var(--jobseeker-primary);
+  }
 }

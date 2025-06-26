@@ -117,7 +117,7 @@ export default function Footer({ mode }: FooterProps) {
                     className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
                 >
                     <p className="text-gray-400 text-sm">
-                        © 2024 Pullr. Made with{" "}
+                        © 2025 Pullr. Made with{" "}
                         <Heart className="inline w-4 h-4 text-red-400 mx-1" />{" "}
                         for the next generation of talent.
                     </p>
