@@ -48,8 +48,11 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
         ];
 
         return (
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
+            <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+                {/* Simple background with blue and slight black gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50"></div>
+
+                <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -57,12 +60,16 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
                         transition={{ duration: 0.6 }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                            Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Pullr?</span>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+                            <span className="text-blue-900">
+                                Why Choose <span className="text-slate-900">Pullr?</span>
+                            </span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            We&apos;re revolutionizing how talented people connect with opportunities.
-                            No more job board scrolling, no more application black holes.
+                        <p className="text-xl text-blue-800 max-w-3xl mx-auto leading-relaxed">
+                            We're revolutionizing how talented people connect with opportunities.
+                            <span className="block mt-2 text-slate-800 font-medium">
+                                No more job board scrolling, no more application black holes.
+                            </span>
                         </p>
                     </motion.div>
 
@@ -79,15 +86,17 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
                                 variants={itemVariants}
                                 className="text-center group"
                             >
-                                <div className="mb-4 inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-2xl group-hover:from-blue-200 group-hover:to-purple-200 transition-all duration-300">
-                                    <feature.icon className="w-8 h-8 text-blue-600" />
+                                <div className="relative p-8 h-full bg-white rounded-2xl border border-blue-200 hover:border-blue-300 transition-all duration-300 hover:shadow-lg">
+                                    <div className="mb-6 inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-slate-800 rounded-2xl shadow-md">
+                                        <feature.icon className="w-8 h-8 text-white" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-4 text-blue-900">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-blue-700 leading-relaxed">
+                                        {feature.description}
+                                    </p>
                                 </div>
-                                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                                    {feature.title}
-                                </h3>
-                                <p className="text-gray-600 leading-relaxed">
-                                    {feature.description}
-                                </p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -105,7 +114,7 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
         {
             icon: Target,
             title: "Portfolios > Resumes",
-            description: "Candidates can&apos;t fake skills when they have to show actual projects and results. Quality over quantity."
+            description: "Candidates can't fake skills when they have to show actual projects and results. Quality over quantity."
         },
         {
             icon: Clock,
@@ -120,8 +129,11 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
     ];
 
     return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
+            {/* Simple background with maroon and slight black gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-50 via-white to-slate-50"></div>
+
+            <div className="max-w-7xl mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -129,12 +141,16 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">Pullr?</span>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+                        <span className="text-red-900">
+                            Why Choose <span className="text-slate-900">Pullr?</span>
+                        </span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Tired of sifting through hundreds of generic resumes?
-                        We&apos;re changing how you discover and connect with genuine talent.
+                    <p className="text-xl text-red-800 max-w-3xl mx-auto leading-relaxed">
+                        We're revolutionizing how smart recruiters find exceptional talent.
+                        <span className="block mt-2 text-slate-800 font-medium">
+                            No more resume spam, no more keyword guessing games.
+                        </span>
                     </p>
                 </motion.div>
 
@@ -151,15 +167,17 @@ export default function WhyUsSection({ mode }: WhyUsSectionProps) {
                             variants={itemVariants}
                             className="text-center group"
                         >
-                            <div className="mb-4 inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl group-hover:from-orange-200 group-hover:to-red-200 transition-all duration-300">
-                                <feature.icon className="w-8 h-8 text-orange-600" />
+                            <div className="relative p-8 h-full bg-white rounded-2xl border border-red-200 hover:border-red-300 transition-all duration-300 hover:shadow-lg">
+                                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-600 to-slate-800 rounded-2xl shadow-md">
+                                    <feature.icon className="w-8 h-8 text-white" />
+                                </div>
+                                <h3 className="text-xl font-semibold mb-4 text-red-900">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-red-700 leading-relaxed">
+                                    {feature.description}
+                                </p>
                             </div>
-                            <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                                {feature.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed">
-                                {feature.description}
-                            </p>
                         </motion.div>
                     ))}
                 </motion.div>

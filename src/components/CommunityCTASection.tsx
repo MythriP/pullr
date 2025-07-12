@@ -1,71 +1,78 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, Users, Heart } from 'lucide-react';
+import { Sparkles, ArrowRight, Users, Heart, Zap } from 'lucide-react';
 
 export default function CommunityCTASection() {
-    return (
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 left-0 w-full h-full">
-                <div className="absolute top-10 left-10 w-20 h-20 bg-purple-100 rounded-full blur-xl"></div>
-                <div className="absolute top-32 right-20 w-32 h-32 bg-blue-100 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-20 left-32 w-24 h-24 bg-indigo-100 rounded-full blur-xl"></div>
-            </div>
+    const primaryColor = '#1E40AF';
+    const backgroundColor = '#F8FAFC';
 
-            <div className="max-w-4xl mx-auto text-center relative z-10">
+    return (
+        <section className="py-20 px-4 sm:px-6 lg:px-8 relative" style={{ backgroundColor }}>
+            {/* Simple background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50"></div>
+
+            <div className="max-w-6xl mx-auto text-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8 }}
+                    className="mb-12"
                 >
-                    <div className="flex justify-center mb-6">
-                        <div className="flex items-center gap-2 bg-yellow-50 rounded-full px-4 py-2 border border-yellow-200">
-                            <Sparkles className="w-5 h-5 text-yellow-600" />
-                            <span className="text-gray-800 font-medium">Join the Movement</span>
-                        </div>
-                    </div>
-
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                        Be a part of a cool community that doesn&apos;t just shine —
-                        <span className="inline-flex items-center gap-2 text-yellow-600">
-                            we reflect <Sparkles className="w-8 h-8 sm:w-10 sm:h-10" />
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span className="text-blue-900">Be a part of a cool community</span>
+                        <span className="block text-slate-900">that doesn't just shine —</span>
+                        <span className="inline-flex items-center gap-3 mt-2">
+                            <span className="text-blue-900">we reflect</span>
+                            <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-blue-700" />
                         </span>
                     </h2>
 
-                    <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                    <p className="text-xl mb-8 leading-relaxed max-w-3xl mx-auto text-slate-700">
                         Explore other profiles, find common interests, and share the journey.
                         Connect with like-minded professionals who are building their futures, just like you.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-                        <div className="flex items-center gap-2 text-gray-700">
-                            <Users className="w-5 h-5 text-yellow-600" />
-                            <span>Connect with peers</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-gray-700">
-                            <Heart className="w-5 h-5 text-yellow-600" />
-                            <span>Share your journey</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-gray-700">
-                            <Sparkles className="w-5 h-5 text-yellow-600" />
-                            <span>Discover opportunities</span>
-                        </div>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-12">
+                        {[
+                            { icon: Users, text: "Connect with peers" },
+                            { icon: Heart, text: "Share your journey" },
+                            { icon: Zap, text: "Discover opportunities" }
+                        ].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                className="flex items-center gap-3"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1, duration: 0.6 }}
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-blue-100">
+                                    <item.icon className="w-5 h-5 text-blue-700" />
+                                </div>
+                                <span className="font-medium text-blue-900">
+                                    {item.text}
+                                </span>
+                            </motion.div>
+                        ))}
                     </div>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group bg-yellow-600 hover:bg-yellow-700 text-white px-12 py-6 rounded-full font-bold text-xl shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300 transform hover:-translate-y-1"
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                        Create Your Portfolio
-                        <ArrowRight className="inline-block ml-3 group-hover:translate-x-2 transition-transform duration-300" size={24} />
-                    </motion.button>
-
-                    <p className="text-gray-500 mt-6 text-sm">
-                        Free to start • No credit card required • Join 10,000+ creators
-                    </p>
+                        <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl transition-all duration-300 flex items-center gap-2 hover:scale-105 shadow-lg">
+                            <span>Join the Community</span>
+                            <ArrowRight className="w-5 h-5" />
+                        </button>
+                        <button className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold rounded-2xl transition-all duration-300 hover:scale-105">
+                            Learn More
+                        </button>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

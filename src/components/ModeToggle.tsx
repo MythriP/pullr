@@ -10,12 +10,12 @@ interface ModeToggleProps {
 
 export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
     return (
-        <div className="glass-card p-1">
+        <div className="p-1.5 rounded-2xl bg-white/90 backdrop-blur-lg border border-white/30 shadow-xl shadow-black/10">
             <div className="relative flex items-center">
                 <motion.div
-                    className={`absolute inset-y-0 w-1/2 rounded-full shadow-lg ${mode === 'jobseeker'
-                        ? 'bg-gradient-to-r from-yellow-600 to-yellow-400'
-                        : 'bg-gradient-to-r from-blue-600 to-blue-400'
+                    className={`absolute inset-y-0 w-1/2 rounded-xl shadow-lg ${mode === 'jobseeker'
+                        ? 'bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 shadow-blue-700/30'
+                        : 'bg-gradient-to-r from-red-700 via-red-900 to-slate-900 shadow-red-700/30'
                         }`}
                     animate={{
                         x: mode === 'jobseeker' ? 0 : '100%',
@@ -25,20 +25,24 @@ export default function ModeToggle({ mode, onModeChange }: ModeToggleProps) {
 
                 <button
                     onClick={() => onModeChange('jobseeker')}
-                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors ${mode === 'jobseeker' ? 'text-white' : 'text-black hover:text-white'
+                    className={`relative z-10 flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${mode === 'jobseeker'
+                        ? 'text-white'
+                        : 'text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 hover:from-blue-800 hover:via-blue-950 hover:to-slate-900'
                         }`}
                 >
                     <User size={16} />
-                    Job Seeker
+                    <span>Job Seeker</span>
                 </button>
 
                 <button
                     onClick={() => onModeChange('recruiter')}
-                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-colors ${mode === 'recruiter' ? 'text-white' : 'text-black hover:text-white'
+                    className={`relative z-10 flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${mode === 'recruiter'
+                        ? 'text-white'
+                        : 'text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-red-900 to-slate-900 hover:from-red-800 hover:via-red-950 hover:to-slate-900'
                         }`}
                 >
                     <Building size={16} />
-                    Recruiter
+                    <span>Recruiter</span>
                 </button>
             </div>
         </div>

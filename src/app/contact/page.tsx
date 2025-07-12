@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Mail, MessageSquare, User, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import Navigation from '@/components/Navigation';
 
 interface FormData {
     name: string;
@@ -55,7 +56,7 @@ export default function ContactPage() {
 
             if (response.ok) {
                 setStatus('success');
-                setStatusMessage('Message sent successfully! We&apos;ll get back to you soon.');
+                setStatusMessage('Message sent successfully! We will get back to you soon.');
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 setStatus('error');
@@ -69,41 +70,47 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="min-h-screen theme-contact relative overflow-hidden">
+            {/* Background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-white to-blue-50/30"></div>
+
+            <Navigation mode="contact" />
+            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 relative z-10">
                 <Link
                     href="/"
-                    className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-8 transition-colors"
+                    className="inline-flex items-center gap-2 font-medium mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 hover:from-blue-800 hover:via-blue-950 hover:to-slate-900 transition-all duration-300"
                 >
-                    <ArrowLeft size={20} />
+                    <ArrowLeft size={20} className="text-blue-700" />
                     Back to Home
                 </Link>
 
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-                        Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Touch</span>
+                    <h1 className="text-big font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
+                        Get in <span className="font-black">Touch</span>
                     </h1>
-                    <p className="text-xl text-gray-600 leading-relaxed">
-                        Have questions? Feedback? Ideas? We&apos;d love to hear from you!
-                        Drop us a message and we&apos;ll get back to you soon.
+                    <p className="text-xl leading-relaxed text-blue-800/80">
+                        Have questions? Feedback? Ideas?
+                        <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 font-medium">
+                            We'd love to hear from you!
+                        </span>
                     </p>
                 </div>
 
-                <div className="bg-white rounded-3xl p-8 shadow-xl">
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-blue-100/50 shadow-xl shadow-blue-900/20">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                            <label htmlFor="name" className="block text-sm font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
                                 Your Name *
                             </label>
                             <div className="relative">
-                                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                                <User className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-700/60" size={20} />
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                                    className="w-full pl-12 pr-4 py-4 border border-blue-200/50 rounded-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm text-blue-900 placeholder-blue-500/60 focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20 focus:bg-white/90"
                                     placeholder="Your full name"
                                     required
                                 />
@@ -111,18 +118,18 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                            <label htmlFor="email" className="block text-sm font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
                                 Email Address *
                             </label>
                             <div className="relative">
-                                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                                <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-700/60" size={20} />
                                 <input
                                     type="email"
                                     id="email"
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                                    className="w-full pl-12 pr-4 py-4 border border-blue-200/50 rounded-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm text-blue-900 placeholder-blue-500/60 focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20 focus:bg-white/90"
                                     placeholder="your@email.com"
                                     required
                                 />
@@ -130,7 +137,7 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                            <label htmlFor="subject" className="block text-sm font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
                                 Subject
                             </label>
                             <select
@@ -138,7 +145,7 @@ export default function ContactPage() {
                                 name="subject"
                                 value={formData.subject}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-gray-900"
+                                className="w-full px-4 py-4 border border-blue-200/50 rounded-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm text-blue-900 focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20 focus:bg-white/90"
                             >
                                 <option value="">Select a topic</option>
                                 <option value="general">General Inquiry</option>
@@ -150,19 +157,19 @@ export default function ContactPage() {
                         </div>
 
                         <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                            <label htmlFor="message" className="block text-sm font-semibold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
                                 Message *
                             </label>
                             <div className="relative">
-                                <MessageSquare className="absolute left-3 top-3 text-gray-400" size={20} />
+                                <MessageSquare className="absolute left-4 top-4 text-blue-700/60" size={20} />
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows={6}
                                     value={formData.message}
                                     onChange={handleChange}
-                                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none text-gray-900"
-                                    placeholder="Tell us what&apos;s on your mind..."
+                                    className="w-full pl-12 pr-4 py-4 border border-blue-200/50 rounded-2xl transition-all duration-300 resize-none bg-white/80 backdrop-blur-sm text-blue-900 placeholder-blue-500/60 focus:border-blue-700 focus:ring-2 focus:ring-blue-700/20 focus:bg-white/90"
+                                    placeholder="Tell us what's on your mind..."
                                     required
                                 />
                             </div>
@@ -171,72 +178,70 @@ export default function ContactPage() {
                         <button
                             type="submit"
                             disabled={status === 'sending'}
-                            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                            className="w-full py-4 px-6 bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 hover:from-blue-800 hover:via-blue-950 hover:to-slate-900 text-white font-semibold rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-700/25 hover:shadow-blue-700/40 hover:scale-[1.02]"
                         >
                             {status === 'sending' ? (
                                 <>
                                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                    Sending...
+                                    <span>Sending...</span>
                                 </>
                             ) : (
                                 <>
                                     <Send size={20} />
-                                    Send Message
+                                    <span>Send Message</span>
                                 </>
                             )}
                         </button>
 
                         {/* Status Message */}
                         {status !== 'idle' && (
-                            <div className={`p-4 rounded-xl flex items-center gap-3 ${status === 'success'
-                                ? 'bg-green-50 text-green-800 border border-green-200'
-                                : status === 'error'
-                                    ? 'bg-red-50 text-red-800 border border-red-200'
-                                    : 'bg-blue-50 text-blue-800 border border-blue-200'
+                            <div className={`p-4 rounded-2xl flex items-center gap-3 backdrop-blur-sm ${status === 'success'
+                                    ? 'bg-green-50/80 border border-green-200/50'
+                                    : 'bg-red-50/80 border border-red-200/50'
                                 }`}>
                                 {status === 'success' ? (
-                                    <CheckCircle size={20} className="text-green-600" />
-                                ) : status === 'error' ? (
-                                    <AlertCircle size={20} className="text-red-600" />
+                                    <CheckCircle className="w-5 h-5 text-green-600" />
                                 ) : (
-                                    <div className="w-5 h-5 border-2 border-blue-600/30 border-t-blue-600 rounded-full animate-spin" />
+                                    <AlertCircle className="w-5 h-5 text-red-600" />
                                 )}
-                                <p className="font-medium">{statusMessage}</p>
+                                <span className={`text-sm font-medium ${status === 'success' ? 'text-green-800' : 'text-red-800'
+                                    }`}>
+                                    {statusMessage}
+                                </span>
                             </div>
                         )}
                     </form>
                 </div>
 
-                <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
-                    <div className="bg-white rounded-2xl p-6 shadow-lg">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <Mail className="w-6 h-6 text-white" />
+                {/* Contact Info */}
+                <div className="mt-16 grid md:grid-cols-2 gap-8">
+                    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-blue-100/50 shadow-lg">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 rounded-xl flex items-center justify-center">
+                                <Mail className="w-5 h-5 text-white" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
+                                Email Us
+                            </h3>
                         </div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-                        <p className="text-gray-600 text-sm">mythripopuri2001@gmail.com</p>
+                        <p className="text-blue-800/70 leading-relaxed">
+                            Drop us a line anytime and we'll get back to you as soon as possible.
+                        </p>
                     </div>
 
-                    <div className="bg-white rounded-2xl p-6 shadow-lg">
-                        <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <MessageSquare className="w-6 h-6 text-white" />
+                    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-blue-100/50 shadow-lg">
+                        <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 rounded-xl flex items-center justify-center">
+                                <MessageSquare className="w-5 h-5 text-white" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900">
+                                Feedback
+                            </h3>
                         </div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Live Chat</h3>
-                        <p className="text-gray-600 text-sm">Coming soon!</p>
+                        <p className="text-blue-800/70 leading-relaxed">
+                            Your feedback helps us improve. We're always listening!
+                        </p>
                     </div>
-
-                    <div className="bg-white rounded-2xl p-6 shadow-lg">
-                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <Send className="w-6 h-6 text-white" />
-                        </div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Response Time</h3>
-                        <p className="text-gray-600 text-sm">Within 24 hours</p>
-                    </div>
-                </div>
-
-                <div className="mt-8 text-center">
-                    <p className="text-xs text-gray-500">
-                        🚀 Contact form is now live! Messages will be sent directly to our team.
-                    </p>
                 </div>
             </div>
         </div>

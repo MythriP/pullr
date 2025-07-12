@@ -1,64 +1,57 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
-import FeedbackDialog from './FeedbackDialog';
 
 interface FAQSectionProps {
     mode: 'jobseeker' | 'recruiter';
 }
 
 export default function FAQSection({ mode }: FAQSectionProps) {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const primaryColor = mode === 'jobseeker' ? '#1E40AF' : '#991B1B';
+    const backgroundColor = mode === 'jobseeker' ? '#F8FAFC' : '#FAFAFA';
 
     const faqs = {
         jobseeker: [
             {
-                question: 'How do I create my portfolio?',
-                answer: 'Creating your portfolio is simple. Sign up, choose a template, and start adding your projects, skills, and experience. Our guided setup helps you showcase your work effectively.'
+                question: 'How does Pullr work for job seekers?',
+                answer: 'Pullr helps you create a dynamic portfolio that showcases your skills and achievements. Once your profile is complete, our AI matches you with relevant opportunities and allows recruiters to discover your work organically.'
             },
             {
-                question: 'Do I need design skills to create a portfolio?',
-                answer: 'Not at all! Our platform provides beautiful, professional templates that automatically format your content. Just focus on showcasing your work - we handle the design.'
+                question: 'Is my data secure on Pullr?',
+                answer: 'Absolutely. We use industry-standard encryption and security measures to protect your personal information. You have full control over what information you share and with whom.'
             },
             {
-                question: 'How do companies find me?',
-                answer: 'Our AI matching system analyzes your skills and projects, then shows your portfolio to relevant companies. You can also apply directly to specific opportunities.'
+                question: 'How much does it cost?',
+                answer: 'Pullr offers a free tier with basic features. Premium plans start at $9.99/month and include advanced portfolio customization, priority matching, and detailed analytics.'
             },
             {
-                question: 'Is my portfolio private?',
-                answer: 'You have full control over your privacy. You can make your portfolio public, private, or visible only to companies you choose. Share selectively or broadly - it\'s up to you.'
+                question: 'Can I customize my portfolio?',
+                answer: 'Yes! Our portfolio builder offers extensive customization options. You can choose from various templates, add your own branding, and showcase your work in the way that best represents you.'
             },
             {
-                question: 'What types of projects should I include?',
-                answer: 'Include your best work that demonstrates your skills. This could be code projects, design work, writing samples, case studies, or any professional work relevant to your field.'
-            },
-            {
-                question: 'Is Pullr free to use?',
-                answer: 'Yes! Creating your portfolio and basic features are completely free. We offer premium features for advanced customization and enhanced visibility.'
+                question: 'How do I get matched with opportunities?',
+                answer: 'Our AI analyzes your skills, experience, and preferences to match you with relevant job openings. You can also set up alerts for specific types of positions or companies.'
             }
         ],
         recruiter: [
             {
-                question: 'How does the AI matching work?',
-                answer: 'Our AI analyzes job requirements against candidate portfolios, skills, and project history to suggest the best matches. It considers technical skills, experience level, and project relevance.'
+                question: 'How does Pullr help recruiters find better candidates?',
+                answer: 'Pullr provides access to a curated pool of professionals with verified portfolios. Our AI-powered matching system helps you find candidates based on actual skills and achievements, not just keywords.'
             },
             {
-                question: 'Can I see actual work samples?',
-                answer: 'Yes! Unlike traditional resumes, our platform showcases real portfolios with live projects, code samples, case studies, and documented work experience.'
+                question: 'What makes Pullr different from other recruiting platforms?',
+                answer: 'Unlike traditional job boards, Pullr focuses on portfolios and proven work rather than resumes. This gives you a more authentic view of candidates\' capabilities and reduces hiring mistakes.'
             },
             {
-                question: 'How are profiles verified?',
-                answer: 'We verify profiles through multiple methods including GitHub integration, LinkedIn verification, project validation, and skill assessments to ensure authenticity.'
+                question: 'Can I integrate Pullr with my existing hiring tools?',
+                answer: 'Yes, Pullr offers integrations with popular ATS systems and hiring tools. Our API allows for seamless data synchronization and workflow automation.'
             },
             {
-                question: 'What\'s the pricing structure?',
-                answer: 'We offer flexible plans based on your hiring needs. Start with our free plan to explore profiles, then upgrade for advanced search, direct messaging, and priority access to new talent.'
-            },
-            {
-                question: 'Can I search for specific skills?',
-                answer: 'Absolutely! Use our advanced filters to search by specific skills, technologies, experience level, location, availability, and more. Find exactly what you need.'
+                question: 'How much does it cost for recruiters?',
+                answer: 'We offer flexible pricing plans starting at $49/month per recruiter. Enterprise plans with custom features and unlimited searches are available for larger teams.'
             },
             {
                 question: 'How do I contact candidates?',
@@ -70,28 +63,26 @@ export default function FAQSection({ mode }: FAQSectionProps) {
     const currentFaqs = faqs[mode];
 
     return (
-        <section className="py-24 bg-gray-50">
-            <div className="max-w-4xl mx-auto px-6">
-                {/* Header */}
+        <section className="py-24 relative" style={{ backgroundColor }}>
+            {/* Simple background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100"></div>
+
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                        Frequently Asked Questions
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6" style={{ color: primaryColor }}>
+                        Frequently Asked <span className="text-slate-900">Questions</span>
                     </h2>
-                    <p className="text-xl text-gray-600">
-                        {mode === 'jobseeker'
-                            ? 'Everything you need to know about building your portfolio'
-                            : 'Common questions about finding and hiring talent'
-                        }
+                    <p className="text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed">
+                        Find answers to common questions about Pullr and how it can help you {mode === 'jobseeker' ? 'advance your career' : 'find better talent'}.
                     </p>
                 </motion.div>
 
-                {/* FAQ Items */}
                 <div className="space-y-4">
                     {currentFaqs.map((faq, index) => (
                         <motion.div
@@ -100,56 +91,46 @@ export default function FAQSection({ mode }: FAQSectionProps) {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-lg border border-gray-200 overflow-hidden"
+                            className="relative"
                         >
-                            <button
-                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
-                            >
-                                <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                                    {faq.question}
-                                </h3>
-                                <div className={`transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''
-                                    }`}>
-                                    {openIndex === index ? (
-                                        <Minus className={`w-5 h-5 ${mode === 'jobseeker' ? 'text-yellow-600' : 'text-blue-600'
-                                            }`} />
-                                    ) : (
-                                        <Plus className="w-5 h-5 text-gray-400" />
-                                    )}
-                                </div>
-                            </button>
+                            <div className="bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg">
+                                {/* Left accent border */}
+                                <div className="absolute top-0 left-0 w-1 h-full rounded-l-2xl" style={{ backgroundColor: `${primaryColor}50` }} />
 
-                            <motion.div
-                                initial={false}
-                                animate={{
-                                    height: openIndex === index ? 'auto' : 0,
-                                    opacity: openIndex === index ? 1 : 0
-                                }}
-                                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                                className="overflow-hidden"
-                            >
-                                <div className="px-6 pb-6">
-                                    <p className="text-gray-600 leading-relaxed">
+                                <button
+                                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                                    className="w-full text-left focus:outline-none"
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="text-lg font-semibold pr-4" style={{ color: primaryColor }}>
+                                            {faq.question}
+                                        </h3>
+                                        <motion.div
+                                            animate={{ rotate: openIndex === index ? 180 : 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <ChevronDown className="w-5 h-5 text-slate-500" />
+                                        </motion.div>
+                                    </div>
+                                </button>
+
+                                <motion.div
+                                    initial={false}
+                                    animate={{
+                                        height: openIndex === index ? 'auto' : 0,
+                                        opacity: openIndex === index ? 1 : 0
+                                    }}
+                                    transition={{ duration: 0.3 }}
+                                    className="overflow-hidden"
+                                >
+                                    <div className="pt-4 text-slate-700 leading-relaxed">
                                         {faq.answer}
-                                    </p>
-                                </div>
-                            </motion.div>
+                                    </div>
+                                </motion.div>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Feedback CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                    className="text-center mt-16"
-                >
-                    <p className="text-gray-600 mb-4">Still have questions?</p>
-                    <FeedbackDialog mode={mode} />
-                </motion.div>
             </div>
         </section>
     );

@@ -26,11 +26,11 @@ interface ContactFormData {
 
 // Create transporter for sending emails
 const createTransporter = () => {
-    return nodemailer.createTransporter({
+    return nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER || 'your-email@gmail.com', // Replace with your Gmail
-            pass: process.env.EMAIL_PASSWORD || 'your-app-password', // Replace with your Gmail App Password
+            user: process.env.EMAIL_USER || 'heymythri@gmail.com', // Replace with your Gmail
+            pass: process.env.EMAIL_PASSWORD || 'ybvh nvtj fvwt odrc', // Replace with your Gmail App Password
         },
     });
 };
@@ -59,7 +59,7 @@ app.post('/send-email', async (req, res) => {
 
         // Email content
         const mailOptions = {
-            from: process.env.EMAIL_USER || 'your-email@gmail.com',
+            from: process.env.EMAIL_USER || 'heymythri@gmail.com',
             to: process.env.RECIPIENT_EMAIL || 'mythripopuri2001@gmail.com', // Where you want to receive emails
             subject: `New Contact Form Message: ${subject || 'No Subject'}`,
             html: `
@@ -138,7 +138,7 @@ app.get('/health', (req, res) => {
 app.listen(PORT, () => {
     console.log(`✅ Email server running on http://localhost:${PORT}`);
     console.log(`🔗 CORS enabled for: http://localhost:3000`);
-    console.log(`📧 Email configured for: ${process.env.EMAIL_USER || 'your-email@gmail.com'}`);
+    console.log(`📧 Email configured for: ${process.env.EMAIL_USER || 'heymythri@gmail.com'}`);
     console.log(`📬 Messages will be sent to: ${process.env.RECIPIENT_EMAIL || 'mythripopuri2001@gmail.com'}`);
 });
 

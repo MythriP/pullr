@@ -34,93 +34,109 @@ export default function HeroSection({ mode }: HeroSectionProps) {
     };
 
     const currentContent = content[mode];
+    const primaryColor = mode === 'jobseeker' ? '#1E40AF' : '#991B1B';
+    const backgroundColor = mode === 'jobseeker' ? '#F8FAFC' : '#FAFAFA';
 
     return (
-        <section className="min-h-screen bg-white relative">
-            {/* Clean Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white"></div>
+        <section className="min-h-screen relative" style={{ backgroundColor }}>
+            {/* Simple background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-100"></div>
 
-            <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
-                {/* Main Content */}
-                <div className="text-center mb-16">
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border ${mode === 'jobseeker'
-                            ? 'border-yellow-200 bg-yellow-50 text-yellow-800'
-                            : 'border-blue-200 bg-blue-50 text-blue-800'
-                            }`}
+            <div className="max-w-7xl mx-auto px-6 pt-8 pb-16 relative z-10">
+                {/* Simple Logo */}
+                <motion.div
+                    className="flex justify-center mb-16"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <svg
+                        width="120"
+                        height="120"
+                        viewBox="0 0 120 120"
+                        fill="none"
+                        className="relative z-10"
                     >
-                        <span className="text-sm font-medium">
-                            {mode === 'jobseeker' ? '💛' : '💙'}
-                        </span>
-                    </motion.div>
+                        <rect x="20" y="20" width="25" height="80" fill={primaryColor} />
+                        <rect x="20" y="20" width="50" height="25" fill={primaryColor} />
+                        <rect x="20" y="50" width="35" height="20" fill={primaryColor} />
+                        <rect x="70" y="20" width="30" height="30" fill={primaryColor} />
+                        <rect x="70" y="55" width="30" height="25" fill={primaryColor} />
+                    </svg>
+                </motion.div>
 
+                {/* Main Content */}
+                <div className="text-center mb-20">
                     {/* Headline */}
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                        className="text-huge font-bold mb-8 leading-tight"
+                        style={{ color: primaryColor }}
                     >
                         {currentContent.headline.split('\n').map((line, index) => (
-                            <div key={index} className={index === 1 ? (mode === 'jobseeker' ? 'text-yellow-600' : 'text-blue-600') : ''}>
-                                {line}
-                            </div>
+                            <div key={index}>{line}</div>
                         ))}
                     </motion.h1>
 
                     {/* Subheadline */}
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed"
+                        className="text-xl mb-12 max-w-3xl mx-auto leading-relaxed text-slate-700"
                     >
                         {currentContent.subheadline}
                     </motion.p>
 
                     {/* CTA Buttons */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+                        className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
                     >
-                        <button className={`px-8 py-4 rounded-lg font-semibold text-white flex items-center gap-3 transition-all hover:scale-105 ${mode === 'jobseeker'
-                            ? 'bg-yellow-600 hover:bg-yellow-700'
-                            : 'bg-blue-600 hover:bg-blue-700'
-                            }`}>
+                        <button
+                            className="px-8 py-4 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg flex items-center gap-2"
+                            style={{ backgroundColor: primaryColor }}
+                        >
                             {currentContent.cta}
                             <ArrowRight size={20} />
                         </button>
 
-                        <button className="px-8 py-4 border border-gray-300 rounded-lg font-semibold text-gray-700 flex items-center gap-3 hover:bg-gray-50 transition-all">
+                        <button
+                            className="px-8 py-4 font-semibold rounded-2xl transition-all duration-300 hover:scale-105 border-2 bg-white flex items-center gap-2"
+                            style={{ color: primaryColor, borderColor: primaryColor }}
+                        >
                             <Play size={18} />
                             {currentContent.demo}
                         </button>
                     </motion.div>
                 </div>
 
-                {/* Demo/Preview Section */}
+                {/* Demo Preview */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.8 }}
-                    className="mb-20"
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="mb-24"
                 >
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 mb-12">
-                        <div className="bg-gray-100 rounded-xl h-64 flex items-center justify-center">
+                    <div className="card max-w-4xl mx-auto">
+                        <div className="rounded-xl h-80 flex items-center justify-center bg-white border border-slate-200">
                             <div className="text-center">
-                                <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${mode === 'jobseeker' ? 'bg-yellow-100' : 'bg-blue-100'
-                                    }`}>
-                                    <Play className={`w-8 h-8 ${mode === 'jobseeker' ? 'text-yellow-600' : 'text-blue-600'
-                                        }`} />
+                                <div
+                                    className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6"
+                                    style={{ backgroundColor: `${primaryColor}15` }}
+                                >
+                                    <Play className="w-10 h-10" style={{ color: primaryColor }} />
                                 </div>
-                                <p className="text-gray-500 font-medium">Interactive Demo Coming Soon</p>
-                                <p className="text-sm text-gray-400">See how {mode === 'jobseeker' ? 'talent builds portfolios' : 'recruiters discover talent'}</p>
+                                <p className="font-semibold text-lg mb-2" style={{ color: primaryColor }}>
+                                    Interactive Demo Coming Soon
+                                </p>
+                                <p className="text-sm text-slate-600">
+                                    See how {mode === 'jobseeker' ? 'talent builds portfolios' : 'recruiters discover talent'}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -128,46 +144,33 @@ export default function HeroSection({ mode }: HeroSectionProps) {
 
                 {/* Stats */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1 }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 1.0 }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto"
                 >
                     {currentContent.stats.map((stat, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                            transition={{ duration: 0.8, delay: 1.2 + index * 0.1 }}
                             className="text-center group"
                         >
-                            <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4 transition-all group-hover:scale-110 ${mode === 'jobseeker'
-                                ? 'bg-yellow-100 text-yellow-600'
-                                : 'bg-blue-100 text-blue-600'
-                                }`}>
-                                <stat.icon size={24} />
+                            <div
+                                className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all hover:scale-110"
+                                style={{ backgroundColor: `${primaryColor}15` }}
+                            >
+                                <stat.icon size={28} style={{ color: primaryColor }} />
                             </div>
-                            <div className="text-3xl font-bold text-gray-900 mb-2">
+                            <div className="text-4xl font-bold mb-3" style={{ color: primaryColor }}>
                                 {stat.number}
                             </div>
-                            <div className="text-gray-600 font-medium">
+                            <div className="font-medium text-slate-600">
                                 {stat.label}
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                    <div className="text-sm text-gray-400 font-medium">
-                        Scroll to explore
-                    </div>
-                    <div className={`w-0.5 h-6 rounded-full ${mode === 'jobseeker' ? 'bg-yellow-400' : 'bg-blue-400'
-                        }`} />
                 </motion.div>
             </div>
         </section>
