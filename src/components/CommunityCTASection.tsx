@@ -65,7 +65,7 @@ export default function CommunityCTASection() {
                         viewport={{ once: true }}
                         className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
-                        <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl transition-all duration-300 flex items-center gap-2 hover:scale-105 shadow-lg">
+                        <button className="px-8 py-4 bg-gradient-to-r from-blue-700 via-blue-900 to-slate-900 hover:from-blue-800 hover:via-blue-950 hover:to-slate-900 text-white font-semibold rounded-2xl transition-all duration-300 flex items-center gap-2 hover:scale-105 shadow-lg shadow-blue-700/25 hover:shadow-blue-700/40">
                             <span>Join the Community</span>
                             <ArrowRight className="w-5 h-5" />
                         </button>

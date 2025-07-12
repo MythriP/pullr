@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface NavigationProps {
     mode?: 'jobseeker' | 'recruiter' | 'about' | 'contact';
@@ -10,6 +10,7 @@ interface NavigationProps {
 
 export default function Navigation({ mode = 'jobseeker' }: NavigationProps) {
     const pathname = usePathname();
+    const router = useRouter();
     const isRecruiter = mode === 'recruiter';
 
     const navItems = [
@@ -18,12 +19,26 @@ export default function Navigation({ mode = 'jobseeker' }: NavigationProps) {
         { name: 'Contact', href: '/contact' },
     ];
 
+    const handleNavClick = (href: string, event: React.MouseEvent) => {
+        event.preventDefault();
+        console.log('🔗 Navigation clicked:', href, 'Current:', pathname);
+        if (href !== pathname) {
+            // Trigger the transition animation
+            console.log('🚀 Triggering transition animation');
+            window.dispatchEvent(new CustomEvent('startPageTransition'));
+            setTimeout(() => {
+                console.log('📍 Navigating to:', href);
+                router.push(href);
+            }, 500);
+        }
+    };
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-40 bg-white/85 backdrop-blur-lg border-b border-black/5 shadow-sm">
             <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3 group">
+                    <Link href="/" onClick={(e) => handleNavClick('/', e)} className="flex items-center gap-3 group">
                         <motion.div
                             whileHover={{ scale: 1.08, rotate: 3 }}
                             whileTap={{ scale: 0.95 }}
@@ -63,6 +78,7 @@ export default function Navigation({ mode = 'jobseeker' }: NavigationProps) {
                             <motion.div key={item.name} className="relative">
                                 <Link
                                     href={item.href}
+                                    onClick={(e) => handleNavClick(item.href, e)}
                                     className={`relative font-medium transition-all duration-300 group ${pathname === item.href
                                         ? 'opacity-100 text-transparent bg-clip-text' + (isRecruiter
                                             ? ' bg-gradient-to-r from-red-700 via-red-900 to-slate-900'

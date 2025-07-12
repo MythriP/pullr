@@ -75,6 +75,9 @@ export default function ContactPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-white to-blue-50/30"></div>
 
             <Navigation mode="contact" />
+
+
+
             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 relative z-10">
                 <Link
                     href="/"
@@ -196,8 +199,8 @@ export default function ContactPage() {
                         {/* Status Message */}
                         {status !== 'idle' && (
                             <div className={`p-4 rounded-2xl flex items-center gap-3 backdrop-blur-sm ${status === 'success'
-                                    ? 'bg-green-50/80 border border-green-200/50'
-                                    : 'bg-red-50/80 border border-red-200/50'
+                                ? 'bg-green-50/80 border border-green-200/50'
+                                : 'bg-red-50/80 border border-red-200/50'
                                 }`}>
                                 {status === 'success' ? (
                                     <CheckCircle className="w-5 h-5 text-green-600" />

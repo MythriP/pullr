@@ -9,6 +9,9 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-white to-blue-50/30"></div>
 
             <Navigation mode="about" />
+
+
+
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-24 relative z-10">
                 <Link
                     href="/"
